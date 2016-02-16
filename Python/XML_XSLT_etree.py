@@ -8,6 +8,9 @@ xsltFile = sys.argv[1]
 xmlFile = sys.argv[2]
 
 xslt = etree.XSLT(etree.XML(open(xsltFile).read()))
-xml = etree.parse(xmlFile)
+xml = etree.XML(open(xmlFile).read())
+# OR
+# xml = etree.parse(xmlFile)
+
 result = xslt(xml)
 print result
