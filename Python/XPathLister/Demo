@@ -1,0 +1,23 @@
+
+----------------------------------------
+>>> cat roles.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<roles type="array">
+    <role>
+        <id type="integer">1</id>
+        <created-at type="dateTime">2011-01-01T01:01:01-01:00</created-at>
+        <updated-at type="dateTime">2011-01-01T01:01:01-01:00</updated-at>
+        <name>NameValue</name>
+        <description>description sample</description>
+    </role>
+</roles>
+
+>>>
+>>> python xpathLister.py xpaths.xslt     roles.xml
+, l.value( '(/roles/role/id)[1]', 'VARCHAR(50)' ) AS [_roles_role_id]
+, l.value( '(/roles/role/created-at)[1]', 'VARCHAR(50)' ) AS [_roles_role_created-at]
+, l.value( '(/roles/role/updated-at)[1]', 'VARCHAR(50)' ) AS [_roles_role_updated-at]
+, l.value( '(/roles/role/name)[1]', 'VARCHAR(50)' ) AS [_roles_role_name]
+, l.value( '(/roles/role/description)[1]', 'VARCHAR(50)' ) AS [_roles_role_description]
+
+
